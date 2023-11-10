@@ -5,9 +5,9 @@ import agh.ics.oop.model.MoveDirection;
 public class World {
     public static void main(String[] args) {
         System.out.println("start");
-        String[] tabl = {"L", "R", "B", "F"};
-        MoveDirection[] res = OptionParser.metoda(tabl);
-        System.out.println(res);
+        //String[] tabl = {"L", "R", "B", "F"};
+        //MoveDirection[] res = OptionParser.metoda(tabl);
+       // System.out.println(res);
         run(OptionParser.metoda(args));
         System.out.println("stop");
     }
