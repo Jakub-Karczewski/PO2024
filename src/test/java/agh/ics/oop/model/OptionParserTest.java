@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 import agh.ics.oop.OptionParser;
+
 public class OptionParserTest {
     @Test
     public void Test_OptionsParser() {

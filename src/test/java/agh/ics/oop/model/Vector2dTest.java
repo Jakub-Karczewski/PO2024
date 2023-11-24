@@ -86,3 +86,5 @@ public class Vector2dTest {
         assertEquals(a.opposite().toString(), new Vector2d(-1, -1).toString());
     }
 }
+
+
