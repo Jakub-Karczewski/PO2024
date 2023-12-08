@@ -17,9 +17,9 @@ public class RectangularMapTest {
             System.out.println("Key=" + key + ", Value=" + zwierzak);
         }
     }
-    public List<Vector2d> Hashmap_to_list(HashMap<Vector2d, Animal> heh){
+    public List<Vector2d> Hashmap_to_list(HashMap<Vector2d, WorldElement> heh){
         List<Vector2d> lista = new ArrayList<>();
-        for(Map.Entry<Vector2d, Animal> entry : heh.entrySet()){
+        for(Map.Entry<Vector2d, WorldElement> entry : heh.entrySet()){
             Vector2d key = entry.getKey();
             lista.add(key);
         }
@@ -31,7 +31,7 @@ public class RectangularMapTest {
         Animal z1 = new Animal(new Vector2d(1, 2), MapDirection.NORTH);
         Animal z2 = new Animal(new Vector2d(1, 2), MapDirection.NORTH);
         Animal z3 = new Animal(new Vector2d(4, 4), MapDirection.NORTH);
-        RectangularMap mapa = new RectangularMap(5, 5);
+        RectangularMap mapa = new RectangularMap();
         MoveValidator JD = mapa;
         z1.move(MoveDirection.LEFT, JD);
         z1.move(MoveDirection.FORWARD, JD);
@@ -43,21 +43,23 @@ public class RectangularMapTest {
         mapa.place(z1);
         mapa.place(z2);
         mapa.place(z3);
-        HashMap<Vector2d, Animal> hash = mapa.getAnimals();
+        HashMap<Vector2d, WorldElement> hash = mapa.getElements();
         //print_Map(mapa.getAnimals());
         List<Vector2d> lista = Hashmap_to_list(hash);
-        List<Vector2d> lista_test = List.of(new Vector2d(1, 1), new Vector2d(4, 4));
+        List<Vector2d> lista_test = List.of(new Vector2d(1, 1), new Vector2d(9, 4));
         assertEquals(lista_test, lista);
         //System.out.println(lista);
     }
     @Test
     public void Test_ObjectAt_IsOccupied() {
-        Animal z3 = new Animal(new Vector2d(4, 4), MapDirection.NORTH);
-        RectangularMap mapa = new RectangularMap(5, 5);
+        Animal z3 = new Animal(new Vector2d(5, 4), MapDirection.NORTH);
+        GrassField trawka = new GrassField(20);
+        RectangularMap mapa = new RectangularMap();
         mapa.place(z3);
-        Vector2d vec = new Vector2d(4, 4);
-        //System.out.println(mapa.objectAt(vec));
-        assertEquals(z3, mapa.objectAt(new Vector2d(4, 4)));
+        Vector2d vec = new Vector2d(5, 4);
+        System.out.println(Hashmap_to_list(mapa.getElements()));
+        //System.out.println(mapa.objectAt(vec).getClass().toString());
+        assertEquals(z3, mapa.objectAt(new Vector2d(5, 4)));
         //System.out.println(mapa.objectAt(new Vector2d(3, 3)));
         assertEquals(null, mapa.objectAt(new Vector2d(3, 3)));
         assertEquals(true, mapa.isOccupied(vec));

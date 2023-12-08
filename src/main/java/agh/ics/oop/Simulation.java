@@ -6,35 +6,34 @@ import agh.ics.oop.model.util.MapVisualizer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Simulation {
     private List<Animal> Animals = new ArrayList<>();
     private List<MoveDirection> moves;
-    private WorldMap mapeczka;
+    private RectangularMap animals;
+    private GrassField grass;
     public void run(){
-        int n = this.Animals.size();
-        int m = this.moves.size();
+        int n = this.Animals.size(), m = moves.size();
         int j = 0;
         for(int i = 0; i < m; i++){
             MoveDirection turn = moves.get(i);
             if(j == n){
                 j = 0;
             }
-            Animals.get(j).move(turn, mapeczka);
-            System.out.println(Animals.get(j).show_animal(j));
+            Animals.get(j).move(turn, animals);
+            //System.out.println(Animals.get(j).show_animal(j));
             j += 1;
         }
-        for (int i = 0; i < n; i++){
-            mapeczka.place(Animals.get(i));
+        for (int i = 0; i < n; i++) {
+            animals.place(Animals.get(i));
         }
-        for (int i = 0; i < n; i++){
-            System.out.println(Animals.get(i).getPos());
-        }
-        MapVisualizer visual = new MapVisualizer(mapeczka);
-        System.out.println(visual.draw(new Vector2d(0, 0), new Vector2d(4, 4)));
+        System.out.println();
+        MapVisualizer visual = new MapVisualizer(animals, grass);
+        System.out.println(visual.draw());
     }
 
-    public Simulation(List<Vector2d> positions, List<MoveDirection> moves, WorldMap mapeczka) {
+    public Simulation(List<Vector2d> positions, List<MoveDirection> moves, RectangularMap animals, GrassField grass) {
         this.moves = moves;
         for(int i = 0; i < positions.size(); i++)
         {
@@ -42,7 +41,12 @@ public class Simulation {
             Animal zwierze = new Animal(pos, MapDirection.NORTH);
             this.Animals.add(zwierze);
         }
-        this.mapeczka = mapeczka;
+        this.animals = animals;
+        this.grass = grass;
         this.moves = moves;
+    }
+
+    public RectangularMap get_animals() {
+        return animals;
     }
 }

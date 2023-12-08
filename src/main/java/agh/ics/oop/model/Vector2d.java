@@ -24,8 +24,8 @@ public class Vector2d {
         return czy_git;
     }
     public boolean follows(Vector2d vec2){
-        boolean czy_git = (vec2.x <= this.x && vec2.y <= this.y);
-        return czy_git;
+        boolean verify = (vec2.x <= this.x && vec2.y <= this.y);
+        return verify;
     }
 
     public Vector2d add(Vector2d vec1){
