@@ -11,7 +11,7 @@ public class GrassFieldTest {
         while(j*j< n * 10){ j += 1; }
         GrassField trawa = new GrassField(n);
         trawa.getAnimals();
-        for(Map.Entry<Vector2d, WorldElement> entry : trawa.getAnimals().entrySet()) {
+        for(Map.Entry<Vector2d, Grass> entry : trawa.getGrass().entrySet()) {
             Vector2d key = entry.getKey();
             assertEquals(true, (key.getx() < j && key.gety() < j));
         }

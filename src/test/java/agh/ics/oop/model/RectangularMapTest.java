@@ -41,6 +41,7 @@ public class RectangularMapTest {
         for (int i = 0; i < 5; i++){
             z3.move(MoveDirection.FORWARD, JD);
         }
+        System.out.println("dupa");
         mapa.place(z1);
         mapa.place(z2);
         mapa.place(z3);

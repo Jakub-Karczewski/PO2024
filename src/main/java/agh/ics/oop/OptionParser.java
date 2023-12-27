@@ -27,7 +27,6 @@ public class OptionParser {
     */
     public static List<MoveDirection> parse(String[] tab){
         return Arrays.stream(tab)
-                .filter((param) -> param.equals("F") || param.equals("B") || param.equals("L") || param.equals("R"))
                 .map((param) -> {
                     return switch (param) {
                         case "F" -> MoveDirection.FORWARD;

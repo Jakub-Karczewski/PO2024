@@ -7,7 +7,7 @@ import java.util.List;
 public class World {
     public static void main(String[] args) {
         System.out.println("start");
-        String[] tabl = {"F", "B", "R", "L", "F", "F", "R", "R", "F", "F", "L", "L", "L", "F", "F", "F", "F", "F", "F", "F",  "F"};
+        String[] tabl = {"R", "B", "R", "L", "F", "F", "R", "R", "F", "F", "L", "L", "L", "F", "F", "F", "F", "F", "F", "F",  "F"};
         RectangularMap zwierzeta = new RectangularMap(20, 20);
         GrassField trawa = new GrassField(20);
         List<MoveDirection> directions = OptionParser.parse(tabl);

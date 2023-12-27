@@ -44,9 +44,9 @@ public class GrassField extends AbstractWorldMap{
         return count;
     }
 
+
+    @Override
     public boolean place(WorldElement stwor) {
-        return this.place(stwor);
+        return false;
     }
-
-
 }

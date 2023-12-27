@@ -22,7 +22,7 @@ public class Simulation {
                 j = 0;
             }
             Animals.get(j).move(turn, mapa);
-            //System.out.println(Animals.get(j).show_animal(j));
+            System.out.println(Animals.get(j).show_animal(j));
             j += 1;
         }
         for (int i = 0; i < n; i++) {

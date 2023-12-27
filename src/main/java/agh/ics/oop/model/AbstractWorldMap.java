@@ -40,10 +40,10 @@ public abstract class AbstractWorldMap implements WorldMap {
 
     public boolean place(Animal stwor) {
         Vector2d val = stwor.getPos();
-        actualize_bonds(val.getx(), val.gety());
         boolean valid = false;
         try{
             if(canMoveTo(val)){
+                actualize_bonds(val.getx(), val.gety());
                 animals.put(val, stwor);
                 valid = true;
             }

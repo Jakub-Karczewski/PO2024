@@ -3,6 +3,7 @@ package agh.ics.oop.model;
 import agh.ics.oop.OptionParser;
 import agh.ics.oop.PositionAlreadyOccupiedException;
 import agh.ics.oop.Simulation;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,7 +14,7 @@ import java.util.Map;
 public class SimulationTest {
     @Test
     public void simtest(){
-        String[] moves = {"F", "F", "F", "B", "B", "B", "L", "F", "L", "F", "F", "B"};
+        String[] moves = {"F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "B", "B", "B", "L", "F", "L", "F", "F", "B"};
         RectangularMap zwierz_pocz = new RectangularMap(20, 20);
         Vector2d v1 = new Vector2d(2, 3), v2 = new Vector2d(3, 4), v3 = new Vector2d(6, 8);
         List<Vector2d> start = new ArrayList<>();
@@ -27,7 +28,7 @@ public class SimulationTest {
         List<WorldElement> animals = List.of(z1, z2, z3);
         for (int i = 0; i < 3; i++){
             trawka.place(animals.get(i));
-        }
+    }
         List<Vector2d> positions = List.of(new Vector2d(2,2),
                 new Vector2d(3,4), new Vector2d(7, 10), new Vector2d (7, 5));
 
@@ -41,10 +42,10 @@ public class SimulationTest {
        }
        System.out.println(lista);
        try {
-           assertEquals(true, trawka.isOccupied(new Vector2d(6, 8)));
-           assertEquals(true, trawka.isOccupied(new Vector2d(3, 4)));
-           assertEquals(true, trawka.isOccupied(new Vector2d(2, 3)));
-           assertEquals(true, trawka.isOccupied(new Vector2d(5, -3)));
+           assertEquals(true, trawka.isOccupied(new Vector2d(6, -2)));
+           assertEquals(true, trawka.isOccupied(new Vector2d(7, -5)));
+           assertEquals(false, trawka.isOccupied(new Vector2d(4, 0)));
+           assertEquals(false, trawka.isOccupied(new Vector2d(5, -3)));
            assertEquals(false, trawka.isOccupied(new Vector2d(5, 5)));
        }
        catch(PositionAlreadyOccupiedException X){
@@ -52,4 +53,5 @@ public class SimulationTest {
        }
 
     }
+
 }
