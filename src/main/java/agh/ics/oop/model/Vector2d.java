@@ -1,8 +1,5 @@
 package agh.ics.oop.model;
 
-import agh.ics.oop.Simulation;
-
-import java.util.List;
 import java.util.Objects;
 
 public class Vector2d {
@@ -74,6 +71,5 @@ public class Vector2d {
     public int hashCode() {
         return Objects.hash(this.x, this.y);
     }
-
 }
 

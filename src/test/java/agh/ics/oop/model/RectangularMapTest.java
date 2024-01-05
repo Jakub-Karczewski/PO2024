@@ -32,7 +32,7 @@ public class RectangularMapTest {
         Animal z1 = new Animal(new Vector2d(1, 2), MapDirection.NORTH);
         Animal z2 = new Animal(new Vector2d(1, 2), MapDirection.NORTH);
         Animal z3 = new Animal(new Vector2d(4, 4), MapDirection.NORTH);
-        RectangularMap mapa = new RectangularMap(20, 20, 6);
+        RectangularMap mapa = new RectangularMap(20, 20);
         MoveValidator JD = mapa;
         z1.move(MoveDirection.LEFT, JD);
         z1.move(MoveDirection.FORWARD, JD);
@@ -55,8 +55,8 @@ public class RectangularMapTest {
     @Test
     public void Test_ObjectAt_IsOccupied() {
         Animal z3 = new Animal(new Vector2d(5, 4), MapDirection.NORTH);
-        GrassField trawka = new GrassField(20, 4);
-        RectangularMap mapa = new RectangularMap(20, 20, 5);
+        GrassField trawka = new GrassField(20);
+        RectangularMap mapa = new RectangularMap(20, 20);
         mapa.place(z3);
         Vector2d vec = new Vector2d(5, 4);
         System.out.println(Hashmap_to_list(mapa.getAnimals()));

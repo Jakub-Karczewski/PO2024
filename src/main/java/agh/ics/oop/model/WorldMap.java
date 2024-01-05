@@ -45,5 +45,4 @@ public interface WorldMap extends MoveValidator {
      */
     WorldElement objectAt(Vector2d position) throws PositionAlreadyOccupiedException;
     public String toString();
-    public int getID();
 }

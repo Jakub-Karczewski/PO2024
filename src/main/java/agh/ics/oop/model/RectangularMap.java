@@ -10,8 +10,7 @@ public class RectangularMap extends AbstractWorldMap{
     int height;
     int width;
 
-    public RectangularMap(int height, int width, int ID){
-        super(ID);
+    public RectangularMap(int height, int width){
         this.height = height;
         this.width = width;
     }
@@ -33,7 +32,7 @@ public class RectangularMap extends AbstractWorldMap{
 
     @Override
     public boolean place(WorldElement stwor) {
-        return false;
+        return this.place(stwor);
     }
 
 }
