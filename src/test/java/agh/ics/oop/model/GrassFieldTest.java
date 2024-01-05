@@ -9,7 +9,7 @@ public class GrassFieldTest {
     public void test_range(){
         int j = 0, n = 5000;
         while(j*j< n * 10){ j += 1; }
-        GrassField trawa = new GrassField(n);
+        GrassField trawa = new GrassField(n, 3);
         trawa.getAnimals();
         for(Map.Entry<Vector2d, Grass> entry : trawa.getGrass().entrySet()) {
             Vector2d key = entry.getKey();

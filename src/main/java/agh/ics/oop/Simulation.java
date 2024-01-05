@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Simulation {
+public class Simulation implements Runnable {
     private List<Animal> Animals = new ArrayList<>();
     private List<MoveDirection> moves;
     private AbstractWorldMap mapa;
@@ -16,21 +16,24 @@ public class Simulation {
     public void run() {
         int n = this.Animals.size(), m = moves.size();
         int j = 0;
+        for(int i = 0; i < n; i++){
+            mapa.place(Animals.get(i));
+        }
         for (int i = 0; i < m; i++) {
             MoveDirection turn = moves.get(i);
             if (j == n) {
                 j = 0;
             }
-            Animals.get(j).move(turn, mapa);
-            System.out.println(Animals.get(j).show_animal(j));
+            mapa.move(Animals.get(j), turn);
+            //System.out.println(Animals.get(j).show_animal(j));
             j += 1;
         }
         for (int i = 0; i < n; i++) {
             mapa.place(Animals.get(i));
         }
-        System.out.println();
+        //System.out.println();
         Boundary granica = mapa.getCurrentBonds();
-        System.out.print(mapa.toString());
+        //System.out.print(mapa.toString());
     }
 
     public Simulation(List<Vector2d> positions, List<MoveDirection> moves, AbstractWorldMap mapa) {

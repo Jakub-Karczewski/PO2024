@@ -14,6 +14,16 @@ public abstract class AbstractWorldMap implements WorldMap {
     protected HashMap<Vector2d, Grass> grass = new HashMap<>();
     private HashMap<Integer, ConsoleMapDisplay> Observators = new HashMap<>();
 
+    private int ID;
+
+    public AbstractWorldMap(int ID){
+        this.ID = ID;
+    }
+
+    public int getID(){
+        return ID;
+    }
+
     public HashMap<Vector2d, Grass> getGrass() {
         return grass;
     }
@@ -46,6 +56,7 @@ public abstract class AbstractWorldMap implements WorldMap {
                 actualize_bonds(val.getx(), val.gety());
                 animals.put(val, stwor);
                 valid = true;
+                MapChanged("dodano nowego zwierzaka");
             }
         }
         catch(PositionAlreadyOccupiedException JD){
@@ -69,6 +80,7 @@ public abstract class AbstractWorldMap implements WorldMap {
         animals.remove(prev);
         stwor.move(direction, this);
         place(stwor);
+        MapChanged("zwierzak poruszył się");
     }
 
     public WorldElement objectAt(Vector2d position) throws PositionAlreadyOccupiedException{
@@ -119,10 +131,13 @@ public abstract class AbstractWorldMap implements WorldMap {
     }
 
     public void MapChanged(String message){
+        //System.out.println("Jestem w MapChanged");
         for(Map.Entry<Integer, ConsoleMapDisplay> entry : Observators.entrySet()) {
             ConsoleMapDisplay obs = entry.getValue();
             obs.MapChanged(this, message);
         }
     }
+
+
 
 }

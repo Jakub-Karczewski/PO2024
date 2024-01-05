@@ -15,16 +15,18 @@ public class SimulationTest {
     @Test
     public void simtest(){
         String[] moves = {"F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "F", "B", "B", "B", "L", "F", "L", "F", "F", "B"};
-        RectangularMap zwierz_pocz = new RectangularMap(20, 20);
+        RectangularMap zwierz_pocz = new RectangularMap(20, 20, 6);
         Vector2d v1 = new Vector2d(2, 3), v2 = new Vector2d(3, 4), v3 = new Vector2d(6, 8);
         List<Vector2d> start = new ArrayList<>();
         for(int i = 0; i < 3; i++){
             int x = i+2, y = 2*i-5;
             start.add(new Vector2d(x, y));
         }
+        ConsoleMapDisplay obs1 = new ConsoleMapDisplay(0);
+        zwierz_pocz.add_observators(obs1);
         WorldElement z1 = new Animal(v1, MapDirection.NORTH), z2 = new Animal(v2, MapDirection.EAST);
         Animal z3 = new Animal(v3, MapDirection.SOUTH);
-        GrassField trawka = new GrassField(5);
+        GrassField trawka = new GrassField(5, 7);
         List<WorldElement> animals = List.of(z1, z2, z3);
         for (int i = 0; i < 3; i++){
             trawka.place(animals.get(i));

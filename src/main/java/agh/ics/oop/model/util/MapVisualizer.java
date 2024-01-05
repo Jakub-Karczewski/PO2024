@@ -29,11 +29,11 @@ public class MapVisualizer {
     public MapVisualizer(HashMap<Vector2d, Animal> animals, HashMap<Vector2d, Grass> grass, Boundary Border) {
         for(HashMap.Entry<Vector2d, Animal> entry : animals.entrySet()){
             Vector2d key = entry.getKey(); Animal value = entry.getValue();
-            System.out.print(value.getPos().getx()); System.out.print(" ");
-            System.out.print(value.getPos().gety());
-            System.out.println();
+            //System.out.print(value.getPos().getx()); System.out.print(" ");
+            //System.out.print(value.getPos().gety());
+            //System.out.println();
         }
-        System.out.println(Border.toString());
+        //System.out.println(Border.toString());
 
         this.animals = animals;
         this.grass = grass;
